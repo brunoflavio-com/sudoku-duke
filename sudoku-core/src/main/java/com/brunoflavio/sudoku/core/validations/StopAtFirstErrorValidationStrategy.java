@@ -12,7 +12,8 @@ public class StopAtFirstErrorValidationStrategy implements ValidationStrategy {
     public StopAtFirstErrorValidationStrategy() {
         this(new Validator[] {
                 ColumnValidator.INSTANCE.getInstance(),
-                RowValidator.INSTANCE.getInstance()
+                RowValidator.INSTANCE.getInstance(),
+                BoxValidator.INSTANCE.getInstance()
         });
     }
 
