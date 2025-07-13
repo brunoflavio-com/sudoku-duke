@@ -5,6 +5,12 @@ plugins {
 group = 'com.brunoflavio.sudoku.core'
 version = 'unspecified'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24)
+    }
+}
+
 repositories {
     mavenCentral()
 }
