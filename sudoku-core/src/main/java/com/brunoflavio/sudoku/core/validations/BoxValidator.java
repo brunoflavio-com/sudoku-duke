@@ -1,7 +1,7 @@
 package com.brunoflavio.sudoku.core.validations;
 
-import com.brunoflavio.sudoku.core.CellValue;
-import com.brunoflavio.sudoku.core.SudokuBoard;
+import com.brunoflavio.sudoku.core.cells.CellValue;
+import com.brunoflavio.sudoku.core.boards.SudokuBoard;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,8 +37,8 @@ public enum BoxValidator implements Validator {
         for(int row=rowStart; row < rowStart+boxSize; row++) {
             for (int col = colStart; col < colStart + boxSize; col++) {
                 CellValue cellValue = board.getCellValueAt(row, col);
-                if (cellValue != SudokuBoard.EMPTY)
-                    values.add(cellValue.value());
+                if (cellValue.hasValue())
+                    values.add(cellValue.getValue());
             }
         }
         return values;

@@ -1,4 +1,10 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.serializers;
+
+import com.brunoflavio.sudoku.core.boards.DefaultSudokuBoard;
+import com.brunoflavio.sudoku.core.boards.SudokuBoard;
+import com.brunoflavio.sudoku.core.cells.CellValue;
+import com.brunoflavio.sudoku.core.cells.FixedCellValue;
+import com.brunoflavio.sudoku.core.cells.MutableCellValue;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,6 +34,13 @@ public class SudokuBoardStringDeserializer {
 
         if (SudokuBoardStringSerializer.EMPTY_INDICATOR.equals(cell)) return SudokuBoard.EMPTY;
 
-        return new CellValue(Integer.parseInt(cell.substring(0,1)), cell.contains(SudokuBoardStringSerializer.FIXED_INDICATOR));
+        int value = Integer.parseInt(cell.substring(0,1));
+        boolean isFixed = cell.contains(SudokuBoardStringSerializer.FIXED_INDICATOR);
+        
+        if (isFixed) {
+            return new FixedCellValue(value);
+        } else {
+            return new MutableCellValue(value);
+        }
     }
 }

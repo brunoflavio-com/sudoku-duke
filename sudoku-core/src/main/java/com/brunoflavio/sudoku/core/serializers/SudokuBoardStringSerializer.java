@@ -1,4 +1,7 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.serializers;
+
+import com.brunoflavio.sudoku.core.boards.SudokuBoard;
+import com.brunoflavio.sudoku.core.cells.CellValue;
 
 public class SudokuBoardStringSerializer {
 
@@ -19,7 +22,7 @@ public class SudokuBoardStringSerializer {
                     builder.append(SEPARATOR);
                 }
                 final CellValue cellValue = board.getCellValueAt(row, col);
-                final String value = -1 == cellValue.value() ? EMPTY_INDICATOR : Integer.toString(cellValue.value());
+                final String value = cellValue.hasValue() ? Integer.toString(cellValue.getValue()) : EMPTY_INDICATOR;
                 builder.append(value);
 
                 if (cellValue.isFixed()) builder.append(FIXED_INDICATOR);

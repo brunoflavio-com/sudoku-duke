@@ -1,8 +1,10 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.boards;
+
+import com.brunoflavio.sudoku.core.cells.CellValue;
 
 import java.util.Arrays;
 
-class DefaultSudokuBoard implements SudokuBoard {
+public class DefaultSudokuBoard implements SudokuBoard {
 
     private final CellValue[] board = new CellValue[9 * 9];
 

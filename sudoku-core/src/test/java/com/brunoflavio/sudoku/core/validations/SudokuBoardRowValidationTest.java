@@ -1,5 +1,8 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.validations;
 
+import com.brunoflavio.sudoku.core.boards.DefaultValidatableSudokuBoard;
+import com.brunoflavio.sudoku.core.boards.ValidatableSudokuBoard;
+import com.brunoflavio.sudoku.core.serializers.SudokuBoardStringDeserializer;
 import org.junit.jupiter.api.Test;
 
 import static com.brunoflavio.sudoku.core.TestUtils.assertNotNullThenPrint;

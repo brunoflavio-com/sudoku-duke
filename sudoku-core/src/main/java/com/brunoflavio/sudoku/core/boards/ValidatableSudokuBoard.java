@@ -1,4 +1,4 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.boards;
 
 public interface ValidatableSudokuBoard extends SudokuBoard{
 

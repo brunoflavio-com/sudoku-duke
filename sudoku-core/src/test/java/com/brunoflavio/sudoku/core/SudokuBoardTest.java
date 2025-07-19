@@ -1,5 +1,8 @@
 package com.brunoflavio.sudoku.core;
 
+import com.brunoflavio.sudoku.core.boards.DefaultSudokuBoard;
+import com.brunoflavio.sudoku.core.boards.SudokuBoard;
+import com.brunoflavio.sudoku.core.serializers.SudokuBoardStringDeserializer;
 import org.junit.jupiter.api.Test;
 
 import static com.brunoflavio.sudoku.core.TestUtils.assertNotNullThenPrint;
@@ -58,7 +61,7 @@ class SudokuBoardTest {
         //check that the diagonal values are correct
         for (int i = 0; 9 > i; i++) {
             var cell = board.getCellValueAt(i, i);
-            assertEquals(i + 1, cell.value());
+            assertEquals(i + 1, cell.getValue());
             assertFalse(cell.isFixed());
         }
 
@@ -122,7 +125,7 @@ class SudokuBoardTest {
         //check that the diagonal values are correct
         for (int i = 0; 9 > i; i++) {
             var cell = board.getCellValueAt(i, i);
-            assertEquals(i + 1, cell.value());
+            assertEquals(i + 1, cell.getValue());
             assertTrue(cell.isFixed());
         }
 

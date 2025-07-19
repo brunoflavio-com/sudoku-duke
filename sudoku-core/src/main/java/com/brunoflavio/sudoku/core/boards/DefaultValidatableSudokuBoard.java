@@ -1,9 +1,10 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.boards;
 
+import com.brunoflavio.sudoku.core.cells.CellValue;
 import com.brunoflavio.sudoku.core.validations.StopAtFirstErrorValidationStrategy;
 import com.brunoflavio.sudoku.core.validations.ValidationStrategy;
 
-public class DefaultValidatableSudokuBoard implements ValidatableSudokuBoard{
+public class DefaultValidatableSudokuBoard implements ValidatableSudokuBoard {
 
     private final SudokuBoard board;
     private final ValidationStrategy validationStrategy;

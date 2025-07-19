@@ -1,12 +1,15 @@
-package com.brunoflavio.sudoku.core;
+package com.brunoflavio.sudoku.core.validations;
 
+import com.brunoflavio.sudoku.core.boards.DefaultValidatableSudokuBoard;
+import com.brunoflavio.sudoku.core.boards.ValidatableSudokuBoard;
+import com.brunoflavio.sudoku.core.serializers.SudokuBoardStringDeserializer;
 import org.junit.jupiter.api.Test;
 
 import static com.brunoflavio.sudoku.core.TestUtils.assertNotNullThenPrint;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class SudokuBoardBoxValidationTest {
+class SudokuBoardColumnValidationTest {
 
 
     @Test
@@ -31,13 +34,14 @@ class SudokuBoardBoxValidationTest {
         assertTrue(board.isValid());
     }
 
+
     @Test
-    void testSameNumberTwiceInBox() {
+    void testSameNumberTwiceInColumn() {
         final String state = """
                 -------+-------+-------
                  1!. . | . . . | . . .
+                 1 . . | . . . | . . .
                  . . . | . . . | . . .
-                 . . 1 | . . . | . . .
                 -------+-------+-------
                  . . . | . . . | . . .
                  . . . | . . . | . . .
@@ -54,20 +58,20 @@ class SudokuBoardBoxValidationTest {
     }
 
     @Test
-    void testSameNumberTwiceInBox2() {
+    void testSameNumberTwiceInColumn2() {
         final String state = """
                 -------+-------+-------
-                 . . . | . . . | . . .
-                 . 4 . | . 6 . | . 9 .
-                 . . . | . . . | . . .
+                 6!. . | . . . | . . 1
+                 . . . | . . . | . . 2
+                 . . . | . . . | . . 3
                 -------+-------+-------
-                 . . . | . . . | . . .
-                 . . . | . . . | . . .
-                 . . . | . . . | . . .
+                 . . . | . . . | . . 4
+                 5 . . | . . . | . . 9
+                 . . . | . . . | . . 6
                 -------+-------+-------
-                 . . . | . . . | . 7 .
-                 . . . | . . . | . . .
-                 1 2 3 | 4 5 6 | 7 8 9
+                 . . . | . . . | . . 7
+                 9 . . | . . . | . . 8
+                 . . . | . . . | . . 9
                 """;
 
         final ValidatableSudokuBoard board = new DefaultValidatableSudokuBoard(SudokuBoardStringDeserializer.createFromState(state));
